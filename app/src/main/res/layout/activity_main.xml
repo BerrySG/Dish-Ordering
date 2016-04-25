@@ -7,10 +7,9 @@
     android:layout_height="match_parent">
 
     <!-- This LinearLayout represents the contents of the screen -->
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <!-- The ActionBar displayed at the top -->
         <include
@@ -22,9 +21,10 @@
         <FrameLayout
             android:id="@+id/flContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <!-- The navigation drawer that comes from the left -->
     <!-- Note that `android:layout_gravity` needs to be set to `start` -->
