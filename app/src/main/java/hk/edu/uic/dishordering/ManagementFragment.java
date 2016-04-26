@@ -16,7 +16,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddDishFragment extends Fragment {
+public class ManagementFragment extends Fragment {
 
     @OnClick(R.id.add_dish_button)
     void addDish() {
@@ -24,7 +24,7 @@ public class AddDishFragment extends Fragment {
         startActivity(intent);
     }
 
-    public AddDishFragment() {
+    public ManagementFragment() {
         // Required empty public constructor
     }
 
@@ -32,7 +32,7 @@ public class AddDishFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dish_add, container, false);
+        return inflater.inflate(R.layout.fragment_management, container, false);
     }
 
     @Override

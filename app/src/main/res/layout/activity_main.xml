@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 app:tabGravity="fill"
-                app:tabTextColor="#3DFFFFFF"
+                app:tabTextColor="#B3FFFFFF"
                 app:tabSelectedTextColor="#FFF"
                 app:tabMode="scrollable"
                 app:tabIndicatorColor="#FFF"/>

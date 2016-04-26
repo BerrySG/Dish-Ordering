@@ -45,6 +45,7 @@ public class AddDishActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
         finish();
         Toast.makeText(this, "Back button clicked", Toast.LENGTH_SHORT).show();
     }

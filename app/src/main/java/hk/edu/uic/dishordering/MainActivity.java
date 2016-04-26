@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = BillFragment.class;
                 break;
             case R.id.nav_add_dish_fragment:
-                fragmentClass = AddDishFragment.class;
+                fragmentClass = ManagementFragment.class;
                 break;
             default:
                 fragmentClass = MenuTabFragment.class;
