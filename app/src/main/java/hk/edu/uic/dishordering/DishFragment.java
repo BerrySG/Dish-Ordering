@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SecondFragment extends Fragment {
+public class DishFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
 
@@ -25,15 +25,15 @@ public class SecondFragment extends Fragment {
     @Bind(R.id.second_label)
     TextView mSecondLabel;
 
-    public static SecondFragment newInstance(int page) {
+    public static DishFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        SecondFragment fragment = new SecondFragment();
+        DishFragment fragment = new DishFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public SecondFragment() {
+    public DishFragment() {
         // Required empty public constructor
     }
 

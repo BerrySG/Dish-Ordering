@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="hk.edu.uic.dishordering.SecondFragment">
+                tools:context=".DishFragment">
 
     <TextView
         android:id="@+id/second_label"
