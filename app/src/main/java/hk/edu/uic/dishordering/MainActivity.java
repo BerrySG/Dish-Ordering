@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
-    @Bind(R.id.nvView)
+    @Bind(R.id.nav_view)
     NavigationView mNavigationView;
 
     @Bind(R.id.toolbar)
