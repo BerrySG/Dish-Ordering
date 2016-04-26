@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         Class fragmentClass;
         switch (item.getItemId()) {
-            case R.id.nav_first_fragment:
-                fragmentClass = FirstFragment.class;
+            case R.id.nav_menu_tab_fragment:
+                fragmentClass = MenuTabFragment.class;
                 break;
             case R.id.nav_second_fragment:
                 fragmentClass = SecondFragment.class;
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = ThirdFragment.class;
                 break;
             default:
-                fragmentClass = FirstFragment.class;
+                fragmentClass = MenuTabFragment.class;
                 break;
         }
 

@@ -16,12 +16,12 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstFragment extends Fragment {
+public class MenuTabFragment extends Fragment {
 
     private ViewPager mViewPager;
     private TabLayout mMenuTabLayout;
 
-    public FirstFragment() {
+    public MenuTabFragment() {
         // Required empty public constructor
     }
 
@@ -30,7 +30,7 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab_menu, container, false);
 
         ButterKnife.bind(this, view);
 
