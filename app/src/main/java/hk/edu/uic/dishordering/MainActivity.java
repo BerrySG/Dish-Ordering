@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_menu_tab_fragment:
                 fragmentClass = MenuTabFragment.class;
                 break;
-            case R.id.nav_second_fragment:
-                fragmentClass = SecondFragment.class;
-                break;
             case R.id.nav_third_fragment:
                 fragmentClass = ThirdFragment.class;
                 break;
