@@ -13,9 +13,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DishFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";

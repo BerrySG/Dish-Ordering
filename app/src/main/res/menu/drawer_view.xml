@@ -6,8 +6,12 @@
             android:icon="@drawable/ic_one"
             android:title="@string/menu"/>
         <item
-            android:id="@+id/nav_third_fragment"
+            android:id="@+id/nav_bill_fragment"
+            android:icon="@drawable/ic_two"
+            android:title="@string/bill"/>
+        <item
+            android:id="@+id/nav_add_dish_fragment"
             android:icon="@drawable/ic_three"
-            android:title="Third"/>
+            android:title="Add Dish"/>
     </group>
 </menu>

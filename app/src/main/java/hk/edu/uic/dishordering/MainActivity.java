@@ -17,6 +17,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String ITEM_ID = "ITEM_ID";
+
+    private int selectedMenuItemId;
+
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Bind(R.id.drawer_layout)
@@ -43,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(ITEM_ID, selectedMenuItemId);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        MenuItem menuItem = mNavigationView.getMenu().findItem(savedInstanceState.getInt(ITEM_ID));
+        selectDrawerItem(menuItem);
     }
 
     // `onPostCreate` called when activity start-up is complete after `onStart()`
@@ -80,12 +97,18 @@ public class MainActivity extends AppCompatActivity {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass;
-        switch (item.getItemId()) {
+
+        selectedMenuItemId = item.getItemId();
+
+        switch (selectedMenuItemId) {
             case R.id.nav_menu_tab_fragment:
                 fragmentClass = MenuTabFragment.class;
                 break;
-            case R.id.nav_third_fragment:
-                fragmentClass = ThirdFragment.class;
+            case R.id.nav_bill_fragment:
+                fragmentClass = BillFragment.class;
+                break;
+            case R.id.nav_add_dish_fragment:
+                fragmentClass = AddDishFragment.class;
                 break;
             default:
                 fragmentClass = MenuTabFragment.class;

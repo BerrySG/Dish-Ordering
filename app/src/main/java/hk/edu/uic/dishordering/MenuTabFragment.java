@@ -12,10 +12,6 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MenuTabFragment extends Fragment {
 
     private ViewPager mViewPager;
@@ -48,5 +44,17 @@ public class MenuTabFragment extends Fragment {
         mMenuTabLayout = (TabLayout) getActivity().findViewById(R.id.menu_tab_layout);
         mMenuTabLayout.setVisibility(View.VISIBLE);
         mMenuTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mMenuTabLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mMenuTabLayout.setVisibility(View.GONE);
     }
 }

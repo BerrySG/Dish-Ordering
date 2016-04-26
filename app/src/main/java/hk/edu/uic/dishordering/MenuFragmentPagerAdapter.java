@@ -7,9 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    final int PAGE_COUNT = 3;
+    final int PAGE_COUNT = 4;
 
-    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3"};
+    private String tabTitles[] = new String[]{"FEATURED", "FOOD", "DRINK", "DESSERTS"};
     private Context mContext;
 
     public MenuFragmentPagerAdapter(FragmentManager fm) {
