@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class DishFragment extends Fragment {
+public class MenuFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
 
@@ -22,15 +22,15 @@ public class DishFragment extends Fragment {
     @Bind(R.id.second_label)
     TextView mSecondLabel;
 
-    public static DishFragment newInstance(int page) {
+    public static MenuFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        DishFragment fragment = new DishFragment();
+        MenuFragment fragment = new MenuFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    public DishFragment() {
+    public MenuFragment() {
         // Required empty public constructor
     }
 
@@ -44,7 +44,7 @@ public class DishFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_dish, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         ButterKnife.bind(this, view);
 

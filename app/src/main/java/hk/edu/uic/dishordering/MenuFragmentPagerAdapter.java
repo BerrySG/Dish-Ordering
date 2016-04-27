@@ -18,7 +18,7 @@ public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return DishFragment.newInstance(position + 1);
+        return MenuFragment.newInstance(position + 1);
     }
 
     @Override

@@ -125,11 +125,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        // Highlight the selected item has been done by NavigationView
         item.setChecked(true);
-        // Set action bar title
         setTitle(item.getTitle());
-        // Close the navigation drawer
         mDrawerLayout.closeDrawers();
     }
 

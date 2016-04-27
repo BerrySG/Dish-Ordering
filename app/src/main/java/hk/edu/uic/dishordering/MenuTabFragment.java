@@ -70,7 +70,7 @@ public class MenuTabFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.dish_fragment, menu);
+        inflater.inflate(R.menu.menu_fragment_menu, menu);
     }
 
     @Override
@@ -84,4 +84,5 @@ public class MenuTabFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
