@@ -3,7 +3,6 @@ package hk.edu.uic.dishordering;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,22 +13,11 @@ import android.view.ViewGroup;
 
 import com.firebase.client.Firebase;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import hk.edu.uic.dishordering.Model.DishSubsystem.Dish;
 
 public class AddDishFragment extends Fragment {
 
     private Firebase mFirebase;
-
-    @Bind(R.id.dish_name_input_layout)
-    TextInputLayout mDishNameInputLayout;
-
-    @Bind(R.id.price_input_layout)
-    TextInputLayout mPriceInputLayout;
-
-    @Bind(R.id.discount_input_layout)
-    TextInputLayout mDiscountInputLayout;
 
     public AddDishFragment() {
         // Required empty public constructor
@@ -72,15 +60,6 @@ public class AddDishFragment extends Fragment {
     }
 
     private void saveDishToFirebase() {
-        String dishName;
-        int price;
 
-        if (mDishNameInputLayout.getEditText() != null && mPriceInputLayout.getEditText() != null) {
-            dishName = mDishNameInputLayout.getEditText().getText().toString();
-            price = Integer.parseInt(mPriceInputLayout.getEditText().getText().toString());
-
-            Dish dish = new Dish(dishName, null, price);
-            mFirebase.push().setValue(dish);
-        }
     }
 }
