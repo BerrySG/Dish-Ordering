@@ -12,6 +12,9 @@ public class DishViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.dish_name_label)
     TextView mDishNameLabel;
 
+    @Bind(R.id.price_label)
+    TextView mPriceLabel;
+
     public DishViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);

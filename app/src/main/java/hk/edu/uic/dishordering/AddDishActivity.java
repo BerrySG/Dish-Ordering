@@ -39,6 +39,8 @@ public class AddDishActivity extends AppCompatActivity {
     public final static int PICK_PHOTO_CODE = 1046;
     public String photoFileName = "dish.jpg";
 
+    private boolean isFeatured = false;
+
     @Bind(R.id.dish_image_view)
     ImageView mDishImageView;
 
@@ -97,6 +99,15 @@ public class AddDishActivity extends AppCompatActivity {
                 break;
             case R.id.action_save:
                 saveToFirebase();
+                break;
+            case R.id.action_featured:
+                if (isFeatured) {
+                    item.setIcon(R.drawable.ic_star_border);
+                    isFeatured = false;
+                } else {
+                    item.setIcon(R.drawable.ic_star);
+                    isFeatured = true;
+                }
                 break;
             default:
                 break;
@@ -202,9 +213,9 @@ public class AddDishActivity extends AppCompatActivity {
             }
         }
 
-        String department = mDepartmentsSpinner.getSelectedItem().toString();
+        String department = mDepartmentsSpinner.getSelectedItem().toString().toLowerCase();
 
-        Dish dish = new Dish(dishName, null, price);
+        Dish dish = new Dish(dishName, null, price, isFeatured);
         dishRef.setValue(dish);
         dishRef.child(department).setValue(true);
 

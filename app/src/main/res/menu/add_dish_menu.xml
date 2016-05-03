@@ -4,7 +4,14 @@
     <item
         android:icon="@drawable/ic_action_done"
         android:id="@+id/action_save"
-        android:orderInCategory="8"
+        android:orderInCategory="16"
         android:title="@string/save"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:icon="@drawable/ic_star_border"
+        android:id="@+id/action_featured"
+        android:orderInCategory="8"
+        android:title="@string/featured"
         app:showAsAction="ifRoom"/>
 </menu>

@@ -11,4 +11,5 @@
     <string name="save">Save</string>
     <string name="add">Add</string>
     <string name="dish_image">Dish image</string>
+    <string name="featured">Featured</string>
 </resources>

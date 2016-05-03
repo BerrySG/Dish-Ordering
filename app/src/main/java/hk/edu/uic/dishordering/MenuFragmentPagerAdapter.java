@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    final int PAGE_COUNT = 4;
-
     private String tabTitles[] = new String[]{"FEATURED", "FOOD", "DRINK", "DESSERTS"};
 
     public MenuFragmentPagerAdapter(FragmentManager fm) {
@@ -16,12 +14,23 @@ public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new MenuFragment();
+        switch (position) {
+            case 0:
+                return MenuFragment.newInstance("featured");
+            case 1:
+                return MenuFragment.newInstance("food");
+            case 2:
+                return MenuFragment.newInstance("drink");
+            case 3:
+                return MenuFragment.newInstance("desserts");
+            default:
+                return null;
+        }
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return tabTitles.length;
     }
 
     @Override
