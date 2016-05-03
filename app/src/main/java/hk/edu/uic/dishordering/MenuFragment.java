@@ -9,8 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.firebase.ui.FirebaseRecyclerAdapter;
 
 import butterknife.Bind;
@@ -24,6 +28,9 @@ public class MenuFragment extends Fragment {
 
     @Bind(R.id.menu_recycler_view)
     RecyclerView mMenuRecyclerView;
+
+    @Bind(R.id.progress_bar)
+    ProgressBar mProgressBar;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -45,7 +52,19 @@ public class MenuFragment extends Fragment {
         mMenuRecyclerView.setHasFixedSize(true);
         mMenuRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // Fetch data from menu
         Firebase menuRef = new Firebase("https://dish-ordering.firebaseio.com/menu");
+        menuRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mProgressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         mAdapter = new FirebaseRecyclerAdapter<Dish, DishViewHolder>(Dish.class, R.layout.item_dish, DishViewHolder.class, menuRef) {
             @Override
