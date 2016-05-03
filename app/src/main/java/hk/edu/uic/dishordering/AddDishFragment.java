@@ -44,7 +44,7 @@ public class AddDishFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.add_dish_fragment_menu, menu);
+        inflater.inflate(R.menu.add_dish_menu, menu);
     }
 
     @Override

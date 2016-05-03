@@ -10,4 +10,5 @@
     <string name="discount">Discount</string>
     <string name="save">Save</string>
     <string name="add">Add</string>
+    <string name="dish_image">Dish image</string>
 </resources>
