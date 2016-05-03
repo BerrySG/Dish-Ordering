@@ -1,6 +1,5 @@
 package hk.edu.uic.dishordering;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,7 +9,6 @@ public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 4;
 
     private String tabTitles[] = new String[]{"FEATURED", "FOOD", "DRINK", "DESSERTS"};
-    private Context mContext;
 
     public MenuFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -18,7 +16,7 @@ public class MenuFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return MenuFragment.newInstance(position);
+        return new MenuFragment();
     }
 
     @Override

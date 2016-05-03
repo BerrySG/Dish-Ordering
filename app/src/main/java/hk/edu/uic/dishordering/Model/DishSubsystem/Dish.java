@@ -1,10 +1,13 @@
 package hk.edu.uic.dishordering.Model.DishSubsystem;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 
 import hk.edu.uic.dishordering.Model.MemberSubsystem.Comment;
 import hk.edu.uic.dishordering.Model.StaffSubsystem.Department;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Dish {
 
     private String mName;
@@ -13,6 +16,10 @@ public class Dish {
     private DishStatus mDishStatus;
     private Department mDepartment;
     private ArrayList<Comment> mComments;
+
+    public Dish() {
+
+    }
 
     public Dish(String name, Department department, int price) {
         mName = name;

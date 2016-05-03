@@ -4,31 +4,26 @@ package hk.edu.uic.dishordering;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.firebase.client.Firebase;
+import com.firebase.ui.FirebaseRecyclerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import hk.edu.uic.dishordering.Model.DishSubsystem.Dish;
 
 
 public class MenuFragment extends Fragment {
 
-    public static final String ARG_PAGE = "ARG_PAGE";
+    private FirebaseRecyclerAdapter<Dish, DishViewHolder> mAdapter;
 
-    private int mPage;
-
-    @Bind(R.id.second_label)
-    TextView mSecondLabel;
-
-    public static MenuFragment newInstance(int page) {
-        Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
-        MenuFragment fragment = new MenuFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
+    @Bind(R.id.menu_recycler_view)
+    RecyclerView mMenuRecyclerView;
 
     public MenuFragment() {
         // Required empty public constructor
@@ -37,7 +32,6 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt(ARG_PAGE);
     }
 
     @Override
@@ -48,9 +42,26 @@ public class MenuFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        mSecondLabel.setText("Fragment #" + mPage);
+        mMenuRecyclerView.setHasFixedSize(true);
+        mMenuRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        Firebase menuRef = new Firebase("https://dish-ordering.firebaseio.com/menu");
+
+        mAdapter = new FirebaseRecyclerAdapter<Dish, DishViewHolder>(Dish.class, R.layout.item_dish, DishViewHolder.class, menuRef) {
+            @Override
+            protected void populateViewHolder(DishViewHolder dishViewHolder, Dish dish, int i) {
+                dishViewHolder.mDishNameLabel.setText(dish.getName());
+            }
+        };
+
+        mMenuRecyclerView.setAdapter(mAdapter);
 
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mAdapter.cleanup();
+    }
 }
