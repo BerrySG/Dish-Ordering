@@ -6,26 +6,16 @@
               android:padding="@dimen/activity_margin"
               tools:context=".DishDetailBottomSheetFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/dish_name_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"/>
+        android:text="@string/name"/>
 
     <TextView
+        android:id="@+id/price_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"/>
-
+        android:text="@string/price"/>
 
 </LinearLayout>

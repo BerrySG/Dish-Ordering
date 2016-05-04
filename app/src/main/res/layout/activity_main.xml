@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -42,6 +43,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <FrameLayout
+            android:id="@+id/order_bottom_sheet"
+            android:elevation="4dp"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:behavior_hideable="false"
+            android:background="@android:color/holo_orange_light"
+            app:behavior_peekHeight="?attr/actionBarSize"
+            tools:targetApi="lollipop">
+
+            <include layout="@layout/fragment_order"/>
+        </FrameLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 

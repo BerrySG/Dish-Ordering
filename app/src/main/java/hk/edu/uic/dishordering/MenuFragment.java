@@ -4,7 +4,6 @@ package hk.edu.uic.dishordering;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,11 +26,15 @@ import hk.edu.uic.dishordering.Model.DishSubsystem.Dish;
 public class MenuFragment extends Fragment {
 
     public static final String KEY_CATEGORY = "KEY_CATEGORY";
+
     @Bind(R.id.menu_recycler_view)
     RecyclerView mMenuRecyclerView;
+
     @Bind(R.id.progress_bar)
     ProgressBar mProgressBar;
+
     private String mCategory;
+
     private FirebaseRecyclerAdapter<Dish, DishViewHolder> mAdapter;
 
     public MenuFragment() {
@@ -83,13 +86,15 @@ public class MenuFragment extends Fragment {
                 dishViewHolder.mDishNameLabel.setText(dish.getName());
                 String price = "$ " + dish.getPrice();
                 dishViewHolder.mPriceLabel.setText(price);
+                dishViewHolder.mActivity = getActivity();
 
                 dishViewHolder.mOrderButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DishDetailBottomSheetFragment dishDetailBottomSheetFragment = new DishDetailBottomSheetFragment();
-                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                        dishDetailBottomSheetFragment.show(fragmentManager, "test");
+                        MainActivity mainActivity = (MainActivity) getActivity();
+                        if (mainActivity.mOrderBottomSheet.getVisibility() == View.GONE) {
+                            mainActivity.mOrderBottomSheet.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
             }
